@@ -10,7 +10,7 @@
 
 namespace Yireo\TranslatableTitle\Plugin\Magento\Framework\View\Page;
 
-use Magento\Framework\View\Page as Subject;
+use Magento\Framework\View\Page\Title as Subject;
 
 /**
  * Plugin Title
@@ -22,10 +22,10 @@ class Title
      * Plugin method to make every page title translatable
      *
      * @param string $title
-     * @return string
+     * @return array
      */
-    public function beforeSet(Subject $subject, string $title)
+    public function beforeSet(Subject $subject, string $title): array
     {
-        return __($title);
+        return [__($title)];
     }
 }
