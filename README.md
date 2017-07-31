@@ -15,7 +15,7 @@ Unfortunately, this title is not translatable. This module can be installed to s
 ## Installation
 To install this extension, use the following command:
 
-    composer require yireo/yireo_translatabletitle
+    composer require yireo/magento2-translatabletitle
 
 Afterwards, enable this module, run the setup scripts and flush the cache:
 
