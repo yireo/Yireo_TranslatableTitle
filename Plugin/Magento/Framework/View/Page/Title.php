@@ -22,10 +22,14 @@ class Title
      * Plugin method to make every page title translatable
      *
      * @param string $title
-     * @return array
+     * @return string
      */
-    public function beforeSet(Subject $subject, string $title): array
+    public function beforeSet(Subject $subject, string $title): string
     {
-        return [__($title)];
+        if (empty($title)) {
+            return '';
+        }
+
+        return (string) __($title);
     }
 }
