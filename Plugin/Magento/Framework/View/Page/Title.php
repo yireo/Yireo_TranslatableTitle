@@ -24,7 +24,7 @@ class Title
      * @param string $title
      * @return string
      */
-    public function beforeSet(Subject $subject, string $title): string
+    public function beforeSet(Subject $subject, $title): string
     {
         if (empty($title)) {
             return '';
