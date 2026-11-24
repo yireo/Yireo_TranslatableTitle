@@ -1,4 +1,4 @@
-# Yireo TranslateTitle
+# Yireo TranslatableTitle
 
 <!-- badges.specs.start -->
 ![Magento version](https://img.shields.io/badge/Magento-2.4.6%20%7C%202.4.9-orange)
@@ -7,10 +7,10 @@
 ![Latest Version](https://img.shields.io/packagist/v/yireo/magento2-translatabletitle)
 <!-- badges.specs.end -->
 
-Magento 2 extension to make every page title (set in XML layout) translatable.
+Magento 2 extension to make page titles that are set as plain strings translatable in the frontend.
 
 ## Backgrounds
-Within Magento 2.1 (version at time of writing this), you can define a page title in XML layout using code like this:
+Magento core already makes page titles defined in XML layout translatable:
 
     <page>
         <head>
@@ -18,7 +18,12 @@ Within Magento 2.1 (version at time of writing this), you can define a page titl
         </head>
     </page>
 
-Unfortunately, this title is not translatable. This module can be installed to simply make it translatable anyway.
+However, titles that are set at runtime as plain strings (`$pageConfig->getTitle()->set('Example')`) are not translated. This
+module adds a plugin to `Magento\Framework\View\Page\Title::set()` that wraps such strings in a `Phrase`, so that they are
+translated when the title is rendered.
+
+The plugin is only active in the `frontend` area. Titles that already are a `Phrase` are left untouched, so that they are
+not translated twice. Empty strings and non-string values are left untouched as well.
 
 ## Installation
 To install this extension, use the following command:

@@ -1,35 +1,25 @@
-<?php
-/**
- * TranslatableTitle module for Magento 2
- *
- * @package     Yireo_TranslatableTitle
- * @author      Yireo (https://www.yireo.com/)
- * @copyright   Copyright 2017 Yireo (https://www.yireo.com/)
- * @license     Open Source License (OSL v3)
- */
+<?php declare(strict_types=1);
 
 namespace Yireo\TranslatableTitle\Plugin\Magento\Framework\View\Page;
 
+use Magento\Framework\Phrase;
 use Magento\Framework\View\Page\Title as Subject;
 
-/**
- * Plugin Title
- * @package Yireo\TranslatableTitle\Plugin\Magento\Framework\View\Page
- */
 class Title
 {
     /**
-     * Plugin method to make every page title translatable
+     * Wrap a plain string title in a Phrase, so that it is translated when rendered
      *
-     * @param string $title
-     * @return string
+     * @param Subject $subject
+     * @param mixed $title
+     * @return Phrase[]|null
      */
-    public function beforeSet(Subject $subject, $title): string
+    public function beforeSet(Subject $subject, mixed $title): ?array
     {
-        if (empty($title)) {
-            return '';
+        if (!is_string($title) || $title === '') {
+            return null;
         }
 
-        return (string) __($title);
+        return [new Phrase($title)];
     }
 }
