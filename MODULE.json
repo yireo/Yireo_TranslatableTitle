@@ -1,7 +1,9 @@
 {
     "module_name": "Yireo_TranslatableTitle",
     "composer_name": "yireo/magento2-translatabletitle",
-    "sequence": [],
-    "phpcs_severity": "6",
+    "sequence": [
+        "Magento_Store"
+    ],
+    "phpcs_severity": "1",
     "phpstan_level": "9"
 }
