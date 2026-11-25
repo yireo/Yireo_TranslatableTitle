@@ -5,5 +5,23 @@
         "Magento_Store"
     ],
     "phpcs_severity": "1",
-    "phpstan_level": "9"
+    "phpstan_level": "9",
+    "php_versions": [
+        "8.1",
+        "8.2",
+        "8.3",
+        "8.4"
+    ],
+    "skip_magento_versions": [],
+    "skip_css_utils": false,
+    "modules": [
+        "Magento_Store"
+    ],
+    "components": [],
+    "config": [],
+    "tests": {
+        "unit": 4,
+        "integration": 4,
+        "functional": 0
+    }
 }
